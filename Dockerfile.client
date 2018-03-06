@@ -1,0 +1,9 @@
+FROM python:latest
+
+WORKDIR /src
+
+COPY requirements.txt /src
+COPY src/client.py /src
+
+RUN pip install -r requirements.txt
+CMD ["python3", "client.py"]
