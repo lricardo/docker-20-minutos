@@ -31,7 +31,7 @@ async def register():
     global websocket
 
     username = input("What's your name? ")
-    websocket = await websockets.connect('ws://0.0.0.0:8765')
+    websocket = await websockets.connect('ws://chat-server:8765')
     
     await websocket.send(username)
     print("> Registering user as: {}".format(username))
