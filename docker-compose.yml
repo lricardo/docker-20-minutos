@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  chat-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./src/server.py:/src/server.py
+    command: python /src/server.py
+  chat-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    volumes:
+      - ./src/client.py:/src/client.py
+    command: python /src/client.py
+
